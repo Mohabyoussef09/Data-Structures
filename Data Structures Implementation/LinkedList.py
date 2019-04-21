@@ -5,11 +5,12 @@ class Node:
 class LinkedList:
     def __init__(self):
         self.head=None
+        self.tail=None
         
         
     def insert(self,newNode):
         if self.head is None:
-            self.head=newNode
+            self.head=self.tail=newNode
         else:
             lastnode=self.head
             while True:
@@ -17,6 +18,7 @@ class LinkedList:
                     break
                 lastnode=lastnode.next
             lastnode.next=newNode
+            tail=lastnode
     
     def linkedListLength(self):
         currentNode=self.head
@@ -102,7 +104,18 @@ class LinkedList:
                 break
             else:
                 print(currentNode.data)
-                currentNode=currentNode.next    
+                currentNode=currentNode.next
+                
+    def reverse(self): 
+        prev = None
+        current = self.head 
+        while(current is not None): 
+            next = current.next
+            current.next = prev 
+            prev = current 
+            current = next
+        self.head = prev
+                
                 
 
 linkedlist=LinkedList()                
@@ -145,3 +158,16 @@ print("----------------------------")
 linkedlist.printLinkedList()
 
 
+linkedlist2=LinkedList()  
+firstNode=Node(1)
+secondNode=Node(2)
+thirdNode=Node(3)
+
+linkedlist2.insert(firstNode)
+linkedlist2.insert(secondNode)
+linkedlist2.insert(thirdNode)
+
+linkedlist2.printLinkedList()
+linkedlist2.reverse()
+print("----------------------------")
+linkedlist2.printLinkedList()
