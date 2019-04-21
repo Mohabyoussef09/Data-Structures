@@ -1,0 +1,22 @@
+Link for the problem: NA
+
+**Problem**(Hash Table)
+Find the first recurring character in the array
+//Given an array = [2,5,1,2,3,5,1,2,4]:
+//It should return 2
+
+//Given an array = [2,1,1,2,3,5,1,2,4]:
+//It should return 1
+
+//Given an array = [2,3,4,5]:
+//It should return undefined
+
+**Solution**
+def firstRecurringCharacter(arr):
+    d={}
+    for element in arr:
+        if d.get(element)==None:
+            d[element]=True
+        else:
+            return element
+    return "undefined"
